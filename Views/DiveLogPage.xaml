@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:DiveLog.ViewModels" xmlns:DiveLog="clr-namespace:DiveLog" xmlns:behaviors="clr-namespace:DiveLog.Behaviors"
+    x:Class="DiveLog.Views.DiveLogPage"
+    Title="DiveLogPage"
+    x:DataType="viewmodels:DiveLogViewModel">
+
+    <Grid>
+        <CollectionView
+            ItemsSource="{Binding Dives}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="DiveLog:Dive">
+                    <VerticalStackLayout>
+                        <Frame Margin="10">
+                            <Frame.Behaviors>
+                                <behaviors:OnAppearingBehavior />
+                            </Frame.Behaviors>
+                            <Grid
+                                Padding="20,0,20,0"
+                                ColumnDefinitions="40,*,40,Auto"
+                                RowDefinitions="*,*,*">
+
+                                <Image
+                                    Source="location.png"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    Text="{Binding Location}"
+                                    VerticalOptions="Center"
+                                    FontSize="25"
+                                    Grid.Column="1" />
+
+                                <Image
+                                    Source="depth.png"
+                                    VerticalOptions="Center"
+                                    Grid.Row="1" />
+
+                                <Label
+                                    Text="{Binding Depth}"
+                                    VerticalOptions="Center"
+                                    Grid.Row="1"
+                                    Grid.Column="1" />
+
+                                <Image
+                                    Source="date.png"
+                                    Grid.Column="2"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    Text="{Binding Date, StringFormat='{}{0:dd-MM-yyyy}'}"
+                                    Grid.Column="3"
+                                    VerticalOptions="Center" />
+
+                                <Image
+                                    Source="time.png"
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    Text="{Binding Time, StringFormat='{}{0:HH:mm}'}"
+                                    Grid.Row="1"
+                                    Grid.Column="3"
+                                    VerticalOptions="Center" />
+
+                            </Grid>
+
+                        </Frame>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button
+            CornerRadius="40"
+            WidthRequest="80"
+            HeightRequest="80"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Text="+"
+            FontSize="80"
+            Command="{Binding AddDiveCommand}"
+            Margin="0,0,0,10" />
+
+        <Frame x:Name="AddPopup">
+            <Frame.Behaviors>
+                <behaviors:TranslationBehavior
+                    IsOpen="{Binding IsInAddMode, Mode=OneWay}"/>
+
+            </Frame.Behaviors>
+
+        </Frame>
+
+    </Grid>
+</ContentPage>
