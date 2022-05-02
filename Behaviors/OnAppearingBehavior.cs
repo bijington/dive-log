@@ -33,23 +33,23 @@ public class OnAppearingBehavior : Behavior<VisualElement>
         visualElement.Scale = 0;
         visualElement.Opacity = 0;
 
-        List<Task> DiveLog = new();
+        List<Task> animations = new();
 
-        DiveLog.Add(visualElement.ScaleTo(1.0, 500, easing: Easing.BounceOut));
-        DiveLog.Add(visualElement.FadeTo(1.0, 500, easing: Easing.BounceOut));
+        animations.Add(visualElement.ScaleTo(1.0, 500, easing: Easing.BounceOut));
+        animations.Add(visualElement.FadeTo(1.0, 500, easing: Easing.BounceOut));
 
-        return Task.WhenAll(DiveLog);
+        return Task.WhenAll(animations);
     }
 
     private Task SlideInBasic()
     {
         visualElement.TranslationY = 1000;
 
-        List<Task> DiveLog = new();
+        List<Task> animations = new();
 
-        DiveLog.Add(visualElement.TranslateTo(0, 0, 500, easing: Easing.BounceOut));
+        animations.Add(visualElement.TranslateTo(0, 0, 500, easing: Easing.BounceOut));
 
-        return Task.WhenAll(DiveLog);
+        return Task.WhenAll(animations);
     }
 
     private async Task SlideInCustom()
