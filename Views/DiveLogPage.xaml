@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:DiveLog.ViewModels" xmlns:DiveLog="clr-namespace:DiveLog" xmlns:behaviors="clr-namespace:DiveLog.Behaviors"
     x:Class="DiveLog.Views.DiveLogPage"
-    Title="DiveLogPage"
+    Title="My Dives"
     x:DataType="viewmodels:DiveLogViewModel">
 
     <Grid>
@@ -23,7 +23,7 @@
                                 RowDefinitions="*,*,*">
 
                                 <Image
-                                    Source="location.png"
+                                    Source="{AppThemeBinding Dark=location.png, Light=location_light.png}"
                                     VerticalOptions="Center" />
 
                                 <Label
@@ -33,7 +33,7 @@
                                     Grid.Column="1" />
 
                                 <Image
-                                    Source="depth.png"
+                                    Source="{AppThemeBinding Dark=depth.png, Light=depth_light.png}"
                                     VerticalOptions="Center"
                                     Grid.Row="1" />
 
@@ -44,7 +44,7 @@
                                     Grid.Column="1" />
 
                                 <Image
-                                    Source="date.png"
+                                    Source="{AppThemeBinding Dark=date.png, Light=date_light.png}"
                                     Grid.Column="2"
                                     VerticalOptions="Center" />
 
@@ -54,7 +54,7 @@
                                     VerticalOptions="Center" />
 
                                 <Image
-                                    Source="time.png"
+                                    Source="{AppThemeBinding Dark=time.png, Light=time_light.png}"
                                     Grid.Row="1"
                                     Grid.Column="2"
                                     VerticalOptions="Center" />
@@ -83,15 +83,6 @@
             FontSize="80"
             Command="{Binding AddDiveCommand}"
             Margin="0,0,0,10" />
-
-        <Frame x:Name="AddPopup">
-            <Frame.Behaviors>
-                <behaviors:TranslationBehavior
-                    IsOpen="{Binding IsInAddMode, Mode=OneWay}"/>
-
-            </Frame.Behaviors>
-
-        </Frame>
 
     </Grid>
 </ContentPage>

@@ -25,7 +25,7 @@ public class OnAppearingBehavior : Behavior<VisualElement>
 
     Task Animate()
     {
-        return SlideIn2();
+        return SlideInCustom();
     }
 
     private Task FadeAndScale()
@@ -41,7 +41,7 @@ public class OnAppearingBehavior : Behavior<VisualElement>
         return Task.WhenAll(DiveLog);
     }
 
-    private Task SlideIn()
+    private Task SlideInBasic()
     {
         visualElement.TranslationY = 1000;
 
@@ -52,12 +52,13 @@ public class OnAppearingBehavior : Behavior<VisualElement>
         return Task.WhenAll(DiveLog);
     }
 
-    private async Task SlideIn2()
+    private async Task SlideInCustom()
     {
         visualElement.TranslationY = 1000;
 
+        await Task.Delay(200);
         await visualElement.TranslateTo(0, -20, 250, easing: Easing.Linear);
-        await visualElement.TranslateTo(0, 10, 100, easing: Easing.Linear);
+        await visualElement.TranslateTo(0, 10, 150, easing: Easing.Linear);
         await visualElement.TranslateTo(0, 0, 100, easing: Easing.Linear);
     }
 }

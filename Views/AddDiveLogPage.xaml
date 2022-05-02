@@ -3,18 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:behaviors="clr-namespace:DiveLog.Behaviors"
              xmlns:viewmodels="clr-namespace:DiveLog.ViewModels"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit" xmlns:triggers="clr-namespace:DiveLog.Triggers"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit" xmlns:triggers="clr-namespace:DiveLog.Triggers" xmlns:controls="clr-namespace:DiveLog.Controls"
              x:Class="DiveLog.Views.AddDiveLogPage"
-             Title="AddDiveLogPage"
+             Title="Add Dive"
              x:DataType="viewmodels:AddDiveLogViewModel">
     <Grid>
         <VerticalStackLayout
             Padding="30">
 
-            <Image
-                HeightRequest="200"
-                Source="wallpaper.png"
-                BackgroundColor="LightGray"/>
+            <Frame
+                CornerRadius="0"
+                HeightRequest="200">
+                <HorizontalStackLayout
+                    VerticalOptions="End"
+                    HorizontalOptions="Start"
+                    Spacing="5">
+
+                    <Image    
+                        Source="wallpaper.png"
+                        BackgroundColor="LightGray"/>
+
+                    <Label
+                        Text="Tap to add photo"
+                        FontAttributes="Italic"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Frame>
 
             <Label
                 x:Name="NameLabel"
@@ -91,14 +105,19 @@
                 </Entry.Behaviors>
             </Entry>
 
-            <CheckBox />
-
             <Button
                 Text="Save"
                 Margin="0,10,0,0"
                 Command="{Binding SaveCommand}"/>
 
         </VerticalStackLayout>
+
+        <!--<Frame
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            IsVisible="{Binding IsBusy}">
+            <controls:LoadingIndicator />
+        </Frame>-->
 
         <Frame
             HorizontalOptions="Center"

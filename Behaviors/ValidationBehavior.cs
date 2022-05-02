@@ -6,9 +6,9 @@ public class ValidationBehavior : Behavior<VisualElement>
 {
     private VisualElement entry;
 
-    public ICommand? ValidateCommand
+    public ICommand ValidateCommand
     {
-        get => (ICommand?)GetValue(ValidateCommandProperty);
+        get => (ICommand)GetValue(ValidateCommandProperty);
         set => SetValue(ValidateCommandProperty, value);
     }
 

@@ -12,6 +12,9 @@ public partial class AddDiveLogViewModel : ObservableObject
     double progress;
 
     [ObservableProperty]
+    bool isBusy;
+
+    [ObservableProperty]
     int previousBest;
 
     [ObservableProperty]
@@ -45,7 +48,7 @@ public partial class AddDiveLogViewModel : ObservableObject
     }
 
     [ICommand]
-    public async void Save()
+    public async Task Save()
     {
         if (string.IsNullOrWhiteSpace(Location) ||
             Location.Length < 10)

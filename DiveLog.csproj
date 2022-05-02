@@ -49,4 +49,10 @@
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
 	  <PackageReference Include="CommunityToolkit.Maui" Version="1.0.0-rc2" />
 	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Controls\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Controls\" />
+	</ItemGroup>
 </Project>
