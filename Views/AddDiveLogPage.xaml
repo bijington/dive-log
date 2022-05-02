@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:behaviors="clr-namespace:DiveLog.Behaviors"
              xmlns:viewmodels="clr-namespace:DiveLog.ViewModels"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit" xmlns:triggers="clr-namespace:DiveLog.Triggers" xmlns:controls="clr-namespace:DiveLog.Controls"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="DiveLog.Views.AddDiveLogPage"
              Title="Add Dive"
              x:DataType="viewmodels:AddDiveLogViewModel">

@@ -53,41 +53,41 @@ public class OnFocusBehavior : Behavior<VisualElement>
 
     private async void OnUnfocused(object sender, FocusEventArgs e)
     {
-        List<Task> DiveLog = new();
+        List<Task> animations = new();
 
         if (TitleElement is not null)
         {
-            DiveLog.Add(TitleElement.FadeTo(originalTitleOpacity));
+            animations.Add(TitleElement.FadeTo(originalTitleOpacity));
         }
 
         if (FooterElement is not null)
         {
-            DiveLog.Add(FooterElement.FadeTo(originalFooterOpacity));
+            animations.Add(FooterElement.FadeTo(originalFooterOpacity));
         }
 
-        if (DiveLog.Any())
+        if (animations.Any())
         {
-            await Task.WhenAll(DiveLog);
+            await Task.WhenAll(animations);
         }
     }
 
     private async void OnFocused(object sender, FocusEventArgs e)
     {
-        List<Task> DiveLog = new();
+        List<Task> animations = new();
 
         if (TitleElement is not null)
         {
-            DiveLog.Add(TitleElement.FadeTo(1.0));
+            animations.Add(TitleElement.FadeTo(1.0));
         }
 
         if (FooterElement is not null)
         {
-            DiveLog.Add(FooterElement.FadeTo(1.0));
+            animations.Add(FooterElement.FadeTo(1.0));
         }
 
-        if (DiveLog.Any())
+        if (animations.Any())
         {
-            await Task.WhenAll(DiveLog);
+            await Task.WhenAll(animations);
         }
     }
 }

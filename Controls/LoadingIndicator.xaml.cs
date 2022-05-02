@@ -35,13 +35,12 @@ public partial class LoadingIndicator : ContentView
 		InitializeComponent();
 	}
 
-    protected async override void OnSizeAllocated(double width, double height)
+    // WHY WON'T THE BINDING WORK????
+    protected override void OnSizeAllocated(double width, double height)
     {
         base.OnSizeAllocated(width, height);
 
         Animate(true);
-
-        //Dispatcher.DispatchDelayed(TimeSpan.FromSeconds(4), () => Animate(false));
     }
 
     void Animate(bool isAnimating)
